@@ -24,6 +24,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
 
 model = torch.hub.load("ultralytics/yolov5", "custom", path = 'best_new.pt', force_reload=True)
+model.conf = 0.45
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -127,7 +128,7 @@ def files(filename):
 
 if __name__ == '__main__':
     # IMPORTANT: change url to the site where you are editing this file.
-    website_url = 'cocalcg13.ai-camp.dev'
+    website_url = 'cocalc6.ai-camp.dev'
     
     print(f'Try to open\n\n    https://{website_url}' + base_url + '\n\n')
     app.run(host = '0.0.0.0', port=port, debug=True)
